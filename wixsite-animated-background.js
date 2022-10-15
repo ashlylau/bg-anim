@@ -1,31 +1,23 @@
 // import wixSite from 'wix-site';
 
-const createSectionBg = () => {
+function createSectionBg(sectionHeight) {
     const img = document.createElement('div');
-    img.id = "bg";
-    img.style.position = 'fixed';
-    img.style.left = '0';
-    img.style.top = '102px';
-    img.style.width = '100%';
-    img.style.height = '808px';
+    img.id = "section-bg";
+    // img.style.position = 'relative';
+    // img.style.right = '50%';
+    img.style.left = '50';
+    img.style.marginLeft = '-50vw';
+    // img.style.marginRight = '-50vw';
+    // img.style.margin = '0';
+    // img.style.right = '0';
+    img.style.top = '0';
+    // img.style.bottom = '0';
+    img.style.width = '150vw';
+    img.style.height = sectionHeight + 'px';
     return img;
 }
 
-const createFooterBg = () => {
-    const img = document.createElement('div');
-    img.id = "bg";
-    img.style.position = 'relative';
-    img.style.right = '50%';
-    img.style.left = '50%';
-    img.style.marginLeft = '-50vw';
-    img.style.marginRight = '-50vw';
-    // img.style.margin = '0';
-    // img.style.right = '0';
-    // img.style.top = '0';
-    img.style.width = '100vw';
-    img.style.height = '500px';
-    return img;
-}
+// var sectionHeight = 100;
 
 const blue = 'rgb(116, 182, 212, 0.6)';
 const blueBg = 'rgb(179, 205, 210, 0.001)';
@@ -37,7 +29,7 @@ function changeBackgroundGradient(x, y) {
     // console.log(`X: ${x}, Y: ${y}`);
     var width = window.innerWidth;
     var height = window.innerHeight;
-    var bgElement = document.getElementById('bg');
+    var bgElement = document.getElementById('section-bg');
     console.log('bgElement: ' + bgElement);
 
     var xPercent = x/width*100;
@@ -74,7 +66,19 @@ class BackgroundGradient extends HTMLElement {
             // }
             // create footer background object for all pages except menu lightbox. (y: 3222, height: 860)
             // if (wixSite.currentPage.type != 'lightbox') {
-            this.appendChild(createFooterBg());
+            var thisHeight = this.offsetHeight;
+            console.log("section height: " + thisHeight);
+            var sectionHeight = this.offsetHeight;
+            this.appendChild(createSectionBg(sectionHeight));
+
+            // var bgAnimStrip = document.getElementById('#bgAnimStrip');
+            // console.log(bgAnimStrip);
+            // var sectionHeight = bgAnimStrip.offsetHeight;
+            // console.log(sectionHeight);
+            thisHeight = this.offsetHeight;
+            console.log("2: " + thisHeight);
+            const nodeList= document.querySelectorAll("p");
+            console.log(nodeList);
             // }
         } 
 }
