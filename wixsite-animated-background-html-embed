@@ -1,5 +1,5 @@
-<div class="footer" id="footer" style="background-color:blue">
-  <p>test</p>
+<div class="footer" id="footer" style="background-colour:blue; position:absolute; top:0px; left:0px; width:100%; height:100%">
+
 </div>
 
 <script>
@@ -7,6 +7,6 @@
   document.addEventListener('mousemove', (e) => {
     console.log('html mouse moved ' + e.clientX);
     console.log(footerElement.style);
-    //footerElement.style.background-color = "red";
+    footerElement.style.background = "red";    
   });
 </script>
