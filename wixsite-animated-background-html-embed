@@ -1,0 +1,12 @@
+<div class="footer" id="footer" style="background-color:blue">
+  <p>test</p>
+</div>
+
+<script>
+  var footerElement = document.getElementById('footer');
+  document.addEventListener('mousemove', (e) => {
+    console.log('html mouse moved ' + e.clientX);
+    console.log(footerElement.style);
+    //footerElement.style.background-color = "red";
+  });
+</script>
